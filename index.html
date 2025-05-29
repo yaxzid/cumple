@@ -2,54 +2,54 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>para ile <3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>para ile &lt;3</title>
   <link href="https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <canvas id="confettiCanvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events:none; z-index: 150;"></canvas>
-    <div class="container" id="container">
-        <div class="card">
-          <h1>¡Feliz Cumpleaños ilee! 🎂</h1>
-          <p>Atrasadimimo pero bueno jiji 💖</p>
-          <button id="openGiftBtn" type="button">Hace clic para una sorpresa</button>
-        </div>
-      </div>
-      
-      <div class="fondo-negro" id="fondoNegro"></div>
-      
-      <div class="overlay hidden" id="overlay">
-        <div class="gift-card" id="giftCard">
-          <div class="front">
-            <img src="ileporta.png" alt="Imagen especial" class="gift-img" />
-            <p>Sos mi primer projecto</p>
-            <p>abrir con cariño y subi el volumen tiene musiquita</p>
-          </div>
-          <div class="back">
-            <div class="before-soplar">
-              <p>No estuve para verte soplar las velitas pero acá hay una virtual</p>
-              <p>Dale click cuando termines de pedir un deseo</p>
-              <div class="torta-container" id="torta">
-                <img src="torta.png" alt="Torta de cumpleaños" class="torta-img" />
-              </div>
-              <div class="extra-content">
-                <p>Espero que tu día especial haya sido tan especial como vos</p>
-                <p>Poco fue lo que vivimos pero mucho lo que compartimos y no hay espacio para explicarte lo importante que fue cada segundo que interactué con vos ile</p>
-              </div>
-              <button id="btnSoplar" class="btn-soplar">🎉 Soplar y continuar</button>
-            </div>
-          
-            <div class="after-soplar hidden" style="position: relative; width: 100%; height: 100%;">
-                <img src="fondotarje.gif" alt="GIF animado" style="position: absolute; top: 50%; left: 50%; 
-                width: 95%; height: 90%; object-fit: cover; 
-                transform: translate(-50%, -50%);
-                z-index: 1;" />
-            </div>
-        </div> 
-      </div> 
+  <canvas id="confettiCanvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events:none; z-index: 150;"></canvas>
+  <div class="container" id="container">
+    <div class="card">
+      <h1>¡Feliz Cumpleaños ilee! 🎂</h1>
+      <p>Atrasadimimo pero bueno jiji 💖</p>
+      <button id="openGiftBtn" type="button">Hace clic para una sorpresa</button>
     </div>
-    <script src="script.js"></script>
-    <audio id="music" src="felizcumple.mp3" preload="auto"></audio>
-    <audio id="soundBlow" src="confeti.mp3" preload="auto"></audio>
+  </div>
+
+  <div class="fondo-negro" id="fondoNegro"></div>
+
+  <div class="overlay hidden" id="overlay">
+    <div class="gift-card" id="giftCard">
+      <div class="front">
+        <img src="ileporta.png" alt="Imagen especial" class="gift-img" />
+        <p>Sos mi primer projecto</p>
+        <p>abrir con cariño y subi el volumen tiene musiquita</p>
+      </div>
+      <div class="back">
+        <div class="before-soplar">
+          <p>No estuve para verte soplar las velitas pero acá hay una virtual</p>
+          <p>Dale click cuando termines de pedir un deseo</p>
+          <div class="torta-container" id="torta">
+            <img src="torta.png" alt="Torta de cumpleaños" class="torta-img" />
+          </div>
+          <div class="extra-content">
+            <p>Espero que tu día especial haya sido tan especial como vos</p>
+            <p>Poco fue lo que vivimos pero mucho lo que compartimos y no hay espacio para explicarte lo importante que fue cada segundo que interactué con vos ile</p>
+          </div>
+          <button id="btnSoplar" class="btn-soplar">🎉 Soplar y continuar</button>
+        </div>
+        <div class="after-soplar hidden" style="position: relative; width: 100%; height: 100%;">
+          <img src="fondotarje.gif" alt="GIF animado" style="position: absolute; top: 50%; left: 50%; 
+          width: 95%; height: 90%; object-fit: cover; 
+          transform: translate(-50%, -50%);
+          z-index: 1;" />
+        </div>
+      </div> 
+    </div> 
+  </div>
+  <script src="script.js"></script>
+  <audio id="music" src="felizcumple.mp3" preload="auto"></audio>
+  <audio id="soundBlow" src="confeti.mp3" preload="auto"></audio>
 </body>
 </html>
