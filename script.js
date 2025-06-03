@@ -13,6 +13,59 @@ document.addEventListener("DOMContentLoaded", () => {
     const afterSoplar = document.querySelector('.after-soplar');
 
 
+
+    const img = document.querySelector('.draggable-img');
+  let isDragging = false;
+  let offset = { x: 0, y: 0 };
+
+  if (!/Mobi|Android/i.test(navigator.userAgent)) {
+    img.addEventListener('mousedown', startDrag);
+      img.addEventListener('touchstart', startDragTouch);
+  }
+
+
+
+  function startDrag(e) {
+    isDragging = true;
+    offset.x = e.clientX - img.offsetLeft;
+    offset.y = e.clientY - img.offsetTop;
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', stopDrag);
+  }
+
+  function startDragTouch(e) {
+    isDragging = true;
+    const touch = e.touches[0];
+    offset.x = touch.clientX - img.offsetLeft;
+    offset.y = touch.clientY - img.offsetTop;
+    document.addEventListener('touchmove', dragTouch);
+    document.addEventListener('touchend', stopDrag);
+  }
+
+  function drag(e) {
+    if (isDragging) {
+      img.style.left = (e.clientX - offset.x) + 'px';
+      img.style.top = (e.clientY - offset.y) + 'px';
+    }
+  }
+
+  function dragTouch(e) {
+    if (isDragging) {
+      const touch = e.touches[0];
+      img.style.left = (touch.clientX - offset.x) + 'px';
+      img.style.top = (touch.clientY - offset.y) + 'px';
+    }
+  }
+
+  function stopDrag() {
+    isDragging = false;
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('mouseup', stopDrag);
+    document.removeEventListener('touchmove', dragTouch);
+    document.removeEventListener('touchend', stopDrag);
+  }
+
+    // Abrir la tarjeta regalo
     btn.addEventListener('click', () => {
         container.style.display = 'none';
         fondoNegro.classList.add('activo');
@@ -28,11 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 2000);
     });
 
+    // Al hacer click en la tarjeta para abrir/cerrar (girar)
     giftCard.addEventListener('click', () => {
         giftCard.classList.toggle('open');
+        afterSoplar.classList.add("hidden");
+
     });
 
-
+    // Al "soplar" la torta
     btnSoplar.addEventListener("click", () => {
         soundBlow.play();
 
@@ -42,7 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         beforeSoplar.classList.add("hidden");
         afterSoplar.classList.remove("hidden");
+        img.classList.remove("hidden");
 
+        // Hacer el "flip" de la tarjeta con delay
         setTimeout(() => {
             giftCard.classList.remove("open");
             setTimeout(() => {
@@ -50,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 300);
         }, 600);
 
+        // Cambiar gif a jpg después de 5 seg (si aplica)
         setTimeout(() => {
             const gif = document.querySelector('img[src="fondotarje.gif"]');
             if (gif) gif.src = 'fondotarje.jpg';
